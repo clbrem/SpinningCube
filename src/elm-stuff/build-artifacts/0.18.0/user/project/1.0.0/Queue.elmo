@@ -1,0 +1,91 @@
+var _user$project$Queue$average = function (_p0) {
+	var _p1 = _p0;
+	var _p2 = _elm_lang$core$Basics$toFloat(_p1._2);
+	if (_p2 === 0) {
+		return 0;
+	} else {
+		return (_elm_lang$core$List$sum(_p1._0) + _elm_lang$core$List$sum(_p1._1)) / _p2;
+	}
+};
+var _user$project$Queue$length = function (_p3) {
+	var _p4 = _p3;
+	return _p4._2;
+};
+var _user$project$Queue$dequeue = function (_p5) {
+	dequeue:
+	while (true) {
+		var _p6 = _p5;
+		var _p9 = _p6._2;
+		var _p8 = _p6._0;
+		var _p7 = {ctor: '_Tuple2', _0: _p8, _1: _p6._1};
+		if (_p7._1.ctor === '[]') {
+			if (_p7._0.ctor === '[]') {
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Maybe$Nothing,
+					_1: {
+						ctor: '_Tuple3',
+						_0: {ctor: '[]'},
+						_1: {ctor: '[]'},
+						_2: 0
+					}
+				};
+			} else {
+				var _v5 = {
+					ctor: '_Tuple3',
+					_0: {ctor: '[]'},
+					_1: _elm_lang$core$List$reverse(_p8),
+					_2: _p9
+				};
+				_p5 = _v5;
+				continue dequeue;
+			}
+		} else {
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Maybe$Just(_p7._1._0),
+				_1: {ctor: '_Tuple3', _0: _p7._0, _1: _p7._1._1, _2: _p9 - 1}
+			};
+		}
+	}
+};
+var _user$project$Queue$trim = F2(
+	function (n, _p10) {
+		trim:
+		while (true) {
+			var _p11 = _p10;
+			var _p14 = _p11._2;
+			var _p13 = _p11._1;
+			var _p12 = _p11._0;
+			if (_elm_lang$core$Native_Utils.cmp(_p14, n) > 0) {
+				var _v7 = n,
+					_v8 = _elm_lang$core$Tuple$second(
+					_user$project$Queue$dequeue(
+						{ctor: '_Tuple3', _0: _p12, _1: _p13, _2: _p14}));
+				n = _v7;
+				_p10 = _v8;
+				continue trim;
+			} else {
+				return {ctor: '_Tuple3', _0: _p12, _1: _p13, _2: _p14};
+			}
+		}
+	});
+var _user$project$Queue$enqueue = F2(
+	function (item, _p15) {
+		var _p16 = _p15;
+		return {
+			ctor: '_Tuple3',
+			_0: {ctor: '::', _0: item, _1: _p16._0},
+			_1: _p16._1,
+			_2: _p16._2 + 1
+		};
+	});
+var _user$project$Queue$new = function (_p17) {
+	var _p18 = _p17;
+	return {
+		ctor: '_Tuple3',
+		_0: {ctor: '[]'},
+		_1: {ctor: '[]'},
+		_2: 0
+	};
+};

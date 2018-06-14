@@ -1,0 +1,42 @@
+var _user$project$Update$update = F2(
+	function (msg, model) {
+		var angle = _user$project$Model$getAngle(model);
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'Theta':
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_user$project$Model$addAngle, _p0._0, model),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'MouseDown':
+				return {
+					ctor: '_Tuple2',
+					_0: A3(
+						_user$project$Model$Down,
+						angle,
+						_p0._0,
+						_user$project$Queue$new(
+							{ctor: '_Tuple0'})),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				var _p1 = model;
+				if (_p1.ctor === 'Down') {
+					return {
+						ctor: '_Tuple2',
+						_0: A2(
+							_user$project$Model$Up,
+							angle,
+							_user$project$Queue$average(_p1._2)),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				} else {
+					return {
+						ctor: '_Tuple2',
+						_0: A2(_user$project$Model$Up, _p1._0, _p1._1),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				}
+		}
+	});

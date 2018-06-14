@@ -1,0 +1,7 @@
+var _user$project$Msg$MouseUp = {ctor: 'MouseUp'};
+var _user$project$Msg$MouseDown = function (a) {
+	return {ctor: 'MouseDown', _0: a};
+};
+var _user$project$Msg$Theta = function (a) {
+	return {ctor: 'Theta', _0: a};
+};

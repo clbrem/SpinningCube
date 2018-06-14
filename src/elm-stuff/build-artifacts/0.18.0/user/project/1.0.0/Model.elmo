@@ -1,0 +1,47 @@
+var _user$project$Model$getAngle = function (model) {
+	var _p0 = model;
+	if (_p0.ctor === 'Down') {
+		return _p0._0;
+	} else {
+		return _p0._0;
+	}
+};
+var _user$project$Model$trimAdd = function (x) {
+	return function (_p1) {
+		return A2(
+			_user$project$Queue$trim,
+			10,
+			A2(_user$project$Queue$enqueue, x, _p1));
+	};
+};
+var _user$project$Model$Up = F2(
+	function (a, b) {
+		return {ctor: 'Up', _0: a, _1: b};
+	});
+var _user$project$Model$init = function (_p2) {
+	var _p3 = _p2;
+	return {
+		ctor: '_Tuple2',
+		_0: A2(_user$project$Model$Up, 0, 0),
+		_1: _elm_lang$core$Platform_Cmd$none
+	};
+};
+var _user$project$Model$Down = F3(
+	function (a, b, c) {
+		return {ctor: 'Down', _0: a, _1: b, _2: c};
+	});
+var _user$project$Model$addAngle = F2(
+	function (delta, model) {
+		var dV = _elm_lang$core$Basics$toFloat(delta) / 5000;
+		var dTheta = _elm_lang$core$Basics$toFloat(delta) / 100;
+		var _p4 = model;
+		if (_p4.ctor === 'Down') {
+			return A3(
+				_user$project$Model$Down,
+				_p4._0 + dTheta,
+				_p4._1 + delta,
+				A2(_user$project$Model$trimAdd, dV, _p4._2));
+		} else {
+			return A2(_user$project$Model$Up, _p4._0 + dTheta, _p4._1);
+		}
+	});
