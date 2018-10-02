@@ -3,15 +3,15 @@ module Main exposing ( main )
 import View exposing ( view )
 import Model exposing ( Model )
 import Msg exposing ( Msg )
-import Html 
+import Browser
 import Update exposing ( update )
 import Sub exposing ( sub )
 
 
-main: Program Never Model Msg
+main: Program () Model Msg
 main = 
-    Html.program 
-        { init = Model.init()
+    Browser.element
+        { init = Model.init
         , view = view
         , subscriptions = sub
         , update = update

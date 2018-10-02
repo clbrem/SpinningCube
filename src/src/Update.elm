@@ -12,4 +12,4 @@ update msg model =
     MouseUp -> 
         case model of 
         Down _ _ queue  -> ( queue |> Queue.average |>  Up angle , Cmd.none )
-        Up angle speed -> (Up angle speed, Cmd.none)
+        alreadyUp -> (alreadyUp, Cmd.none)

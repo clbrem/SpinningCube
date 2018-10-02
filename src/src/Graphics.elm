@@ -1,11 +1,10 @@
 module Graphics exposing (..)
-
 import WebGL exposing (Mesh, Shader, entity)
 import Model exposing (Model, getAngle)
 import Math.Vector3 as Vec3 exposing (vec3, Vec3)
 import Math.Matrix4 as Mat4 exposing (Mat4)
 import Color exposing (Color)
-
+ 
 type alias Vertex = 
     { color : Vec3
     , position : Vec3
@@ -38,12 +37,12 @@ face : Color -> Vec3 -> Vec3 -> Vec3 -> Vec3 -> List ( Vertex, Vertex, Vertex )
 face rawColor a b c d = 
     let
         color = 
-            let c = Color.toRgb rawColor
+            let parsedColor = Color.toRgba rawColor
             in 
                 vec3
-                    ( toFloat c.red / 255 )
-                    ( toFloat c.green / 255 )
-                    ( toFloat c.blue / 255 )
+                    ( parsedColor.red  )
+                    ( parsedColor.green )
+                    ( parsedColor.blue )
         vertex position = 
             Vertex color position
     in

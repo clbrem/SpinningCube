@@ -13,7 +13,7 @@ view model =
     WebGL.toHtml
         [ width 400
         , height 400
-        , style [ ( "display", "block" ) ]
+        , style "display" "block" 
         ]
         [ cube model ]
 

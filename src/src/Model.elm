@@ -1,6 +1,5 @@
 module Model exposing (..)
 import Queue exposing (..)
-
 type alias Angle = Float
 type alias Speed = Float
 type alias Start = Int

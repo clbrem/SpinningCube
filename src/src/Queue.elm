@@ -42,6 +42,6 @@ trim n (l1, l2, m) =
 
 average : Queue Float -> Float
 average (l1, l2, n) =
-    case toFloat n of 
-    0 -> 0
-    m -> (List.sum l1 + List.sum l2) / m
+    case n of 
+    0 -> 0.0
+    m -> (List.sum l1 + List.sum l2) / (toFloat m)
